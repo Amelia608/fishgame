@@ -11,7 +11,33 @@ function momFruitsCollision()
 			{
 				//fruit eaten
 				fruit.dead(i);
+				data.fruitNum++;
+				mom.momBodyCount++;
+				if(mom.momBodyCount > 7)
+					mom.momBodyCount = 7;
+				if(fruit.fruitType[i] == "blue")//blue
+				{
+					data.double = 2;
+				}
+				else
+				{
+					data.double = 1;
+				}
 			}
 		}
+	}
+}
+
+//mom body collision
+function momBadyCollision()
+{
+	var l = calLength2(mom.x,mom.y,baby.x,baby.y);
+	if(l < 900)
+	{
+		//baby recover
+		baby.babyBodyCount = 0;
+		mom.momBodyCount = 0;
+		//score update
+		data.addScore();
 	}
 }

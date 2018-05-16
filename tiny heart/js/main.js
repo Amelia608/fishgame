@@ -22,6 +22,15 @@ var mx;
 var my;
 
 var babyTail = [];
+var babyEye = [];
+var babyBody = [];
+
+var momTail = [];
+var momEye = [];
+var momBodyOra = [];
+var momBodyBlue = [];
+
+var data;
 
 document.body.onload = game;
 function game()
@@ -67,6 +76,40 @@ function init()
 		babyTail[i] = new Image();
 		babyTail[i].src = "./src/babyTail" + i + ".png";
 	}	
+
+	for(var i = 0; i < 2; i++)
+	{
+		babyEye[i] = new Image();
+		babyEye[i].src = "./src/babyEye" + i + ".png";
+	}
+
+	for(var i = 0; i < 20; i++)
+	{
+		babyBody[i] = new Image();
+		babyBody[i].src = "./src/babyFade" + i + ".png";
+	}
+
+	for(var i = 0; i < 8; i++)
+	{
+		momTail[i] = new Image();
+		momTail[i].src = "./src/bigTail" + i + ".png";
+	}	
+
+	for(var i = 0; i < 2; i++)
+	{
+		momEye[i] = new Image();
+		momEye[i].src = "./src/bigEye" + i + ".png";
+	}
+	data = new dataObj();
+	for(var i=0; i < 8; i++)
+	{
+		momBodyOra[i] = new Image();
+		momBodyBlue[i] = new Image();
+		momBodyOra[i].src = "./src/bigSwim" + i + ".png";
+		momBodyBlue[i].src = "./src/bigSwimBlue" + i + ".png";
+	}
+	ctx1.font = "30px Verdana";
+	ctx1.textAlign = "center";
 }
 function gameloop()
 {
@@ -83,8 +126,12 @@ function gameloop()
 
 	ctx1.clearRect(0,0,canWidth,canHeight);
 	mom.draw();
+	baby.draw(); 
 	momFruitsCollision();
-	baby.draw();
+	momBadyCollision();
+
+	data.draw();
+	
 }
 function onMouseMove(e)
 {
