@@ -135,9 +135,12 @@ function gameloop()
 }
 function onMouseMove(e)
 {
-	if(e.offSetX || e.layerX)
-	{
-		mx = e.offSetX == undefined ? e.layerX : e.offSetX;
-		my = e.offsetY == undefined ? e.layerY : e.offsetY;
-	}
+	if (!data.gameOver)
+	 {
+	 	if(e.offSetX || e.layerX)
+		{
+			mx = e.offSetX == undefined ? e.layerX : e.offSetX;
+			my = e.offsetY == undefined ? e.layerY : e.offsetY;
+		}
+	 }
 }

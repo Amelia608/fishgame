@@ -1,43 +1,51 @@
 //判断大鱼和果实的距离
 function momFruitsCollision()
 {
-	for(var i = 0; i < fruit.num; i++)
+	if(!data.gameOver)
 	{
-		if(fruit.alive[i])
+		for(var i = 0; i < fruit.num; i++)
 		{
-			//calculate length
-			var l = calLength2(fruit.x[i],fruit.y[i],mom.x,mom.y);
-			if(l < 900)
+			if(fruit.alive[i])
 			{
-				//fruit eaten
-				fruit.dead(i);
-				data.fruitNum++;
-				mom.momBodyCount++;
-				if(mom.momBodyCount > 7)
-					mom.momBodyCount = 7;
-				if(fruit.fruitType[i] == "blue")//blue
+				//calculate length
+				var l = calLength2(fruit.x[i],fruit.y[i],mom.x,mom.y);
+				if(l < 900)
 				{
-					data.double = 2;
-				}
-				else
-				{
-					data.double = 1;
+					//fruit eaten
+					fruit.dead(i);
+					data.fruitNum++;
+					mom.momBodyCount++;
+					if(mom.momBodyCount > 7)
+						mom.momBodyCount = 7;
+					if(fruit.fruitType[i] == "blue")//blue
+					{
+						data.double = 2;
+					}
+					else
+					{
+						data.double = 1;
+					}
 				}
 			}
 		}
 	}
+	
 }
 
 //mom body collision
 function momBadyCollision()
 {
-	var l = calLength2(mom.x,mom.y,baby.x,baby.y);
-	if(l < 900)
+	if(data.fruitNum > 0 & !data.gameOver)
 	{
-		//baby recover
-		baby.babyBodyCount = 0;
-		mom.momBodyCount = 0;
-		//score update
-		data.addScore();
+		var l = calLength2(mom.x,mom.y,baby.x,baby.y);
+		if(l < 900)
+		{
+			//baby recover
+			baby.babyBodyCount = 0;
+			mom.momBodyCount = 0;
+			//score update
+			data.addScore();
+		}
 	}
+	
 }
