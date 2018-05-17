@@ -25,6 +25,7 @@ function momFruitsCollision()
 					{
 						data.double = 1;
 					}
+					wave.born(fruit.x[i],fruit.y[i]);
 				}
 			}
 		}

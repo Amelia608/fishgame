@@ -31,6 +31,7 @@ var momBodyOra = [];
 var momBodyBlue = [];
 
 var data;
+var wave;
 
 document.body.onload = game;
 function game()
@@ -110,6 +111,9 @@ function init()
 	}
 	ctx1.font = "30px Verdana";
 	ctx1.textAlign = "center";
+
+	wave = new waveObj();
+	wave.init();
 }
 function gameloop()
 {
@@ -131,6 +135,7 @@ function gameloop()
 	momBadyCollision();
 
 	data.draw();
+	wave.draw();
 	
 }
 function onMouseMove(e)

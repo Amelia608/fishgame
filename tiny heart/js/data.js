@@ -25,7 +25,7 @@ dataObj.prototype.draw = function()
 		if(this.alpha > 1)
 			this.alpha = 1;
 		ctx1.fillStyle = "rgba(255,255,255," + this.alpha +")";
-		ctx1.fillText("GAMEOVER",w * 0.5,h * 0.5);
+		ctx1.fillText("小鱼完蛋了",w * 0.5,h * 0.5);
 	}
 	ctx1.restore();
 }
